@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Hub — Plataforma de Experiências</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- BARRA LATERAL DE NAVEGAÇÃO -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <span class="brand-text">NEXLiXTO</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <span class="nav-category">Menu Principal</span>
+            <button class="nav-item active" onclick="switchPage('discover', this)">
+                <i class="fa-solid fa-compass"></i> Descobrir
+            </button>
+            <button class="nav-item" onclick="switchPage('trending', this)">
+                <i class="fa-solid fa-chart-line"></i> Em Alta
+            </button>
+
+            <span class="nav-category">Categorias</span>
+            <button class="nav-item" onclick="filterCategory('action', this)">
+                <i class="fa-solid fa-bolt"></i> Ação / RPG
+            </button>
+            <button class="nav-item" onclick="filterCategory('simulation', this)">
+                <i class="fa-solid fa-city"></i> Simulação
+            </button>
+            <button class="nav-item" onclick="filterCategory('pvp', this)">
+                <i class="fa-solid fa-shield-halved"></i> Estratégia / PvP
+            </button>
+        </nav>
+
+        <button class="nav-item" onclick="switchPage('portfolio', this)">
+            <i class="fa-solid fa-book"></i> Meu Portfolio
+        </button>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <img src="CALiXTO.png" alt="Avatar">
+                <div class="user-info">
+                    <h4>CALiXTO</h4>
+                    <span>Desenvolvedor</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- HEADER SUPERIOR COM BUSCA FUNCIONAL -->
+        <header class="top-header">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Pesquisar universos, mundos ou criadores..." id="searchInput"
+                    oninput="handleSearch(this.value)">
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" title="Notificações" onclick="toggleModal('notificationsModal')">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge-dot" id="notifDot"></span>
+                </button>
+                <button class="icon-btn" title="Configurações" onclick="toggleModal('settingsModal')">
+                    <i class="fa-gear fa-solid"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- CONTAINER DE PÁGINAS -->
+        <div class="page-container">
+
+            <!-- PÁGINA 1: DESCOBRIR (HOME) -->
+            <section id="discover" class="page-section active">
+
+                <!-- HERO BANNER DESTAQUE -->
+                <div class="hero-banner">
+                    <div class="hero-bg"
+                        style="background-image: url('https://imgs.search.brave.com/XpaEPhEDlVgqxdrBK2XorIBVCQCH-tG_cyomt_mjvSs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9rdXNo/YWx0aW1zaW5hLmNv/bS9ibG9nL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDI1LzA1L2Vh/aGkucG5n');">
+                    </div>
+                    <div class="hero-gradient"></div>
+                    <div class="hero-content">
+                        <span class="hero-tag">DESTAQUE DA SEMANA</span>
+                        <h1>Cyberpunk Universe: Edgerunners</h1>
+                        <p>Explore a megacidade vertical, personalize seu ciberware e dispute territórios em tempo real
+                            com mais de 50 mil jogadores simultâneos.</p>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" onclick="launchGame('Cyberpunk Universe: Edgerunners')"><i
+                                    class="fa-solid fa-play"></i> Jogar Agora</button>
+                            <button class="btn-secondary"
+                                onclick="showGameDetails('Cyberpunk Universe: Edgerunners', 'Explore a megacidade vertical com servidores dedicados e gráficos hiper-realistas.')"><i
+                                    class="fa-solid fa-info"></i> Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO DE JOGOS -->
+                <div class="section-header">
+                    <h2>Populares no Momento</h2>
+                    <span class="see-all" onclick="resetFilters()" style="cursor: pointer;">Mostrar todos</span>
+                </div>
+
+                <div class="games-grid" id="gamesGrid">
+                    <!-- Card 1 -->
+                    <div class="game-card" data-category="action" data-title="Blox Legacy Remastered">
+                        <div class="card-thumb">
+                            <img src="https://imgs.search.brave.com/VtuJ78nthjqEB11HM67oMcllzYNKmJKvCynU9mo6uIc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZXZm/b3J1bS11cGxvYWRz/LnMzLmR1YWxzdGFj/ay51cy1lYXN0LTIu/YW1hem9uYXdzLmNv/bS91cGxvYWRzL29w/dGltaXplZC81WC84/L2MvZC8wLzhjZDA0/Y2VhZTc2ZTY5ZmU1/NTcwZmNhNzkyZmQ0/NTAzYTY3Mjc2YmJf/Ml82OTB4Mzg4LnBu/Zw"
+                                alt="Thumbnail">
+                            <div class="thumb-badge positive"><i class="fa-solid fa-thumbs-up"></i> 98%</div>
+                            <div class="card-overlay">
+                                <div class="overlay-top">
+                                    <span class="player-count"><i class="fa-solid fa-users"></i> 42.8K online</span>
+                                </div>
+                                <div class="overlay-bottom">
+                                    <h3>Blox Legacy Remastered</h3>
+                                    <p>Domine poderes lendários e lute em arenas épicas em alto mar.</p>
+                                    <button class="btn-launch" onclick="launchGame('Blox Legacy Remastered')">Iniciar
+                                        Experiência</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-info">
+                                <h4>Blox Legacy</h4>
+                                <span>Ação / Aventura</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="game-card" data-category="simulation" data-title="Neo Tokyo RP Simulator">
+                        <div class="card-thumb">
+                            <img src="https://imgs.search.brave.com/qDZ0reHZmd8-qVWT0IzQ2RN-YhCGt0Pi7GWXe1_jeXo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZXZm/b3J1bS11cGxvYWRz/LnMzLmR1YWxzdGFj/ay51cy1lYXN0LTIu/YW1hem9uYXdzLmNv/bS91cGxvYWRzL29w/dGltaXplZC81WC9l/LzMvOC9mL2UzOGY0/NjhiNDdmODZlZWJh/NjI5ODhkMGVhYTY4/NWE1OTgzMWVjMjVf/Ml81MTd4MzA5Lmpw/ZWc"
+                                alt="Thumbnail">
+                            <div class="thumb-badge positive"><i class="fa-solid fa-thumbs-up"></i> 95%</div>
+                            <div class="card-overlay">
+                                <div class="overlay-top">
+                                    <span class="player-count"><i class="fa-solid fa-users"></i> 28.4K online</span>
+                                </div>
+                                <div class="overlay-bottom">
+                                    <h3>Neo Tokyo RP Simulator</h3>
+                                    <p>Construa sua carreira, compre veículos e viva uma vida virtual urbana.</p>
+                                    <button class="btn-launch" onclick="launchGame('Neo Tokyo RP Simulator')">Iniciar
+                                        Experiência</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-info">
+                                <h4>Neo Tokyo RP</h4>
+                                <span>Simulação / Cidade</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="game-card" data-category="pvp" data-title="Skyline BedWars Arena">
+                        <div class="card-thumb">
+                            <img src="https://imgs.search.brave.com/xYTEg_ZYM_wsp7DwfMbYK_k2llZhJQMKg2vcw-_7YOM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91bmlk/YXkuc3R1ZGlvL3N0/YXRpYy91cGxvYWRz/L2IyODAwY2VkLTNi/NDUtNGFhYS1iZTY4/LTMwYTYwOWZiOTlk/Ny5qcGc"
+                                alt="Thumbnail">
+                            <div class="thumb-badge positive"><i class="fa-solid fa-thumbs-up"></i> 91%</div>
+                            <div class="card-overlay">
+                                <div class="overlay-top">
+                                    <span class="player-count"><i class="fa-solid fa-users"></i> 19.1K online</span>
+                                </div>
+                                <div class="overlay-bottom">
+                                    <h3>Skyline BedWars Arena</h3>
+                                    <p>Proteja sua base, colete recursos e elimine equipes rivais nas ilhas flutuantes.
+                                    </p>
+                                    <button class="btn-launch" onclick="launchGame('Skyline BedWars Arena')">Iniciar
+                                        Experiência</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-info">
+                                <h4>Skyline BedWars</h4>
+                                <span>Estratégia / PvP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PÁGINA 2: EM ALTA -->
+            <section id="trending" class="page-section">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-fire text-orange"></i> Em Alta na Comunidade</h2>
+                </div>
+                <p class="section-desc">Mundos com maior pico de crescimento nas últimas 24 horas.</p>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <div class="card-thumb">
+                            <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=600&auto=format&fit=crop"
+                                alt="Thumbnail">
+                            <div class="thumb-badge hot">🔥 TRENDING</div>
+                            <div class="card-overlay">
+                                <div class="overlay-top"><span class="player-count"><i class="fa-solid fa-users"></i>
+                                        74.2K online</span></div>
+                                <div class="overlay-bottom">
+                                    <h3>Void Defenders</h3>
+                                    <p>Defenda portais cósmicos contra hordas alienígenas.</p>
+                                    <button class="btn-launch" onclick="launchGame('Void Defenders')">Iniciar
+                                        Experiência</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-info">
+                                <h4>Void Defenders</h4><span>Tower Defense</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PÁGINA 3: PORTFOLIO -->
+            <section id="portfolio" class="page-section">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-fire text-orange"></i> Meu Portfolio</h2>
+                </div>
+                <div>
+                    <div class="card-footer">
+                        <div class="card-info">
+                            <h4><i class="fa-solid fa-fire text-orange"></i> Em Progresso..</h4><span>Meus Futuros
+                                Projetos estarão aqui.. Aguardem</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card-footer">
+                        <div class="card-info">
+                            <h4><i class="fa-solid fa-fire text-orange"></i> Scripter</h4><span>Meus Futuros Projetos
+                                estarão aqui.. Aguardem</span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </section>
+
+        </div>
+    </main>
+
+    <!-- MODAIS FUNCIONAIS -->
+    <!-- Modal de Notificações -->
+    <div id="notificationsModal" class="custom-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-regular fa-bell"></i> Notificações Recentes</h3>
+                <button class="close-modal" onclick="toggleModal('notificationsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="notif-item">
+                    <strong>Nova Atualização v2.4</strong>
+                    <p>O motor gráfico do Nexus Hub foi otimizado para melhor taxa de quadros.</p>
+                    <span class="notif-time">Há 2 horas</span>
+                </div>
+                <div class="notif-item">
+                    <strong>Evento de Fim de Semana</strong>
+                    <p>Bônus de XP ativo em todos os servidores de Ação e RPG.</p>
+                    <span class="notif-time">Ontem</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Configurações -->
+    <div id="settingsModal" class="custom-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-gear fa-solid"></i> Configurações do Hub</h3>
+                <button class="close-modal" onclick="toggleModal('settingsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-option">
+                    <span>Tema Escuro Profundo</span>
+                    <input type="checkbox" checked disabled>
+                </div>
+                <div class="setting-option">
+                    <span>Aceleração de Hardware por WebGL</span>
+                    <input type="checkbox" checked onchange="showToast('Configuração salva com sucesso!')">
+                </div>
+                <div class="setting-option">
+                    <span>Qualidade das Thumbnails</span>
+                    <select id="qualitySelect" onchange="showToast('Qualidade ajustada!')">
+                        <option>Ultra (HD)</option>
+                        <option>Desempenho</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Lançamento / Alerta Dinâmico -->
+    <div id="launchModal" class="custom-modal">
+        <div class="modal-content alert-content">
+            <div class="launch-spinner"></div>
+            <h3 id="launchTitle">Conectando ao servidor...</h3>
+            <p id="launchDesc">Estabelecendo túnel seguro com a instância do jogo.</p>
+            <button class="btn-primary" style="margin-top: 15px; width: 100%;"
+                onclick="closeLaunchModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Toast de Notificações Rápidas -->
+    <div id="toastNotification" class="toast">Ação executada com sucesso!</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
