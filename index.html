@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Hub — Plataforma de Experiências</title>
+    <title>NEXLiXTO Hub</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
@@ -23,7 +23,7 @@
 
         <nav class="sidebar-nav">
             <span class="nav-category">Menu Principal</span>
-            <button class="nav-item active" onclick="switchPage('discover', this)">
+            <button class="nav-item active" onclick="resetFilters(), switchPage('discover', this)">
                 <i class="fa-solid fa-compass"></i> Descobrir
             </button>
             <button class="nav-item" onclick="switchPage('trending', this)">
@@ -108,7 +108,6 @@
                 <!-- SEÇÃO DE JOGOS -->
                 <div class="section-header">
                     <h2>Populares no Momento</h2>
-                    <span class="see-all" onclick="resetFilters()" style="cursor: pointer;">Mostrar todos</span>
                 </div>
 
                 <div class="games-grid" id="gamesGrid">
